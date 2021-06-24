@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { useCallback } from 'react'
 import { InputHTMLAttributes } from 'react'
 import tw from 'twin.macro'
 
@@ -8,9 +9,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = ({ icon, ...props }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const onClickWrapper = () => {
+  const onClickWrapper = useCallback(() => {
     inputRef.current?.focus()
-  }
+  }, [])
+  
   return (
     <InputWrapper className="group" onClick={onClickWrapper}>
       {icon && <i tw="pr-2 text-gray-400">{icon}</i>}

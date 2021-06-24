@@ -3,6 +3,7 @@ import { Input } from './components/Input'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useController } from './controller'
+import { ImageListContainer } from './components/ImageListContainer'
 
 function App() {
   const { query, setQuery, images } = useController()
@@ -24,22 +25,12 @@ function App() {
         </article>
 
         <article>
-          <ul tw="flex flex-wrap justify-between">
-            {images.map((image) => (
-              <li key={image.id} tw="p-5">
-                <StyledImage src={`https://picsum.photos/id/${image.id}/300/300`} />
-              </li>
-            ))}
-          </ul>
+          <ImageListContainer images={images} />
         </article>
       </main>
     </Container>
   )
 }
-
-const StyledImage = styled.img`
-  ${tw`object-cover w-72 rounded-lg shadow-lg h-56`}
-`
 
 const Container = styled.section`
   ${tw`mx-auto max-w-full p-10`}
