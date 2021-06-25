@@ -6,7 +6,7 @@ import { useController } from './controller'
 import { ImageListContainer } from './components/ImageListContainer'
 
 function App() {
-  const { query, setQuery, images } = useController()
+  const { query, setQuery, images, loading } = useController()
   return (
     <Container>
       <Header>
@@ -21,6 +21,7 @@ function App() {
             placeholder="검색어를 입력하세요"
             type="search"
             icon={<FontAwesomeIcon icon={faSearch} />}
+            loading={loading}
           />
         </article>
 

@@ -23,7 +23,7 @@ export const findImages = async (query: string) => {
   }
   const seedPage = Math.abs(hashCode(query)) % 80
   const { data } = await Axios.get<Image[]>(
-    `https://picsum.photos/v2/list?page=${seedPage}&limit=12&width=200`,
+    `https://picsum.photos/v2/list?page=${seedPage}&limit=12`,
   )
   return data
 }

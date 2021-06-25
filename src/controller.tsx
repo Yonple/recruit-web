@@ -8,9 +8,9 @@ export const useController = () => {
 
   const debouncedQuery = useDebounce(query, 150)
 
-  const { data } = useImagesQuery(debouncedQuery)
+  const { data, isLoading: loading } = useImagesQuery(debouncedQuery)
 
   const images = useMemo(() => data ?? [], [data])
 
-  return { query, setQuery, images }
+  return { query, setQuery, images, loading }
 }
