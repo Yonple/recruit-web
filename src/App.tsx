@@ -9,7 +9,7 @@ function App() {
       <LineGradient />
       <BrowserRouter>
         <Switch>
-          <Route path="/:id" component={PostViewPage} />
+          <Route path="/:type" component={PostViewPage} />
           <Route path="/" component={PostListPage} />
         </Switch>
       </BrowserRouter>

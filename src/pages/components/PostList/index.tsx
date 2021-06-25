@@ -12,7 +12,7 @@ export const PostList = ({ posts }: Props) => {
     <ul tw="border rounded-md shadow-inner p-5">
       {posts.map((post) => (
         <React.Fragment key={post.id}>
-          <Link to={`/${post.id}`}>
+          <Link to={`/${post.type}?id=${post.id}`}>
             <Item>
               <Title>
                 <span tw="text-blue-500 font-bold">{post.id}.</span> {post.title}

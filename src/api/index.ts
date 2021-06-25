@@ -1,4 +1,3 @@
-import { useQuery } from 'react-query'
 import { apiAxios } from 'src/lib/axios'
 
 export interface Post {
@@ -6,6 +5,7 @@ export interface Post {
   title: string
   content: string
   createdAt: string
+  type: 'a' | 'b'
 }
 
 export interface FindPostsRequest {
@@ -14,13 +14,14 @@ export interface FindPostsRequest {
   page?: number
 }
 
-export const usePosts = (request: FindPostsRequest) => {
-  return useQuery(['posts', request], () => findPosts(request))
-}
-
 export const findPosts = async ({ type, query, page }: FindPostsRequest) => {
   const { data } = await apiAxios.get<Post[]>(
     `/${type}-posts?page=${page ?? 0}&search=${query ?? ''}`,
   )
+  return data
+}
+
+export const findPost = async (id: string, type: 'a' | 'b') => {
+  const { data } = await apiAxios.get<Post>(`/${type}-posts/${id}`)
   return data
 }
