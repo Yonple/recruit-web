@@ -10,6 +10,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a,
+a:hover {
+  color: black;
+}
+
 @layer base {
   html {
     font-size: 14px;

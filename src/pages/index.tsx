@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Input } from 'src/components'
 import { useController } from './controller'
+import { PostList } from './components/PostList'
 
 const PostListPage = () => {
-  const { query, setQuery } = useController()
+  const { query, setQuery, posts, loading } = useController()
   return (
     <div>
       <Container>
@@ -21,12 +22,12 @@ const PostListPage = () => {
               placeholder="검색어를 입력하세요"
               type="search"
               icon={<FontAwesomeIcon icon={faSearch} />}
-              // loading={loading}
+              loading={loading}
             />
           </article>
 
           <article>
-            {/* <ImageListContainer images={images} /> */}
+            <PostList posts={posts} />
           </article>
         </main>
       </Container>
