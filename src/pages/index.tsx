@@ -4,11 +4,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Input, Tab } from 'src/components'
 import { useController } from './controller'
 import { PostList } from './components/PostList'
+import constate from 'constate'
 
 const { TabPane } = Tab
+export const [PostsProvider, usePostsContext] = constate(useController)
 
 const PostListPage = () => {
-  const { query, setQuery, posts, loading, setTabKey, tabKey, lastPostRef } = useController()
+  const { query, setQuery, posts, loading, setTabKey, tabKey, lastPostRef } = usePostsContext()
   return (
     <div>
       <Container>
@@ -41,11 +43,11 @@ const PostListPage = () => {
     </div>
   )
 }
+
 const Container = styled.section`
   ${tw`mx-auto max-w-full p-10`}
   width: 1000px;
 `
-
 const Header = tw.header`text-center space-y-5 my-10`
 
 export default PostListPage

@@ -1,18 +1,18 @@
 import tw, { styled } from 'twin.macro'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import PostListPage from './pages'
+import { Switch, Route } from 'react-router-dom'
+import PostListPage, { PostsProvider } from './pages'
 import PostViewPage from './pages/View'
 
 function App() {
   return (
     <Main>
       <LineGradient />
-      <BrowserRouter>
+      <PostsProvider>
         <Switch>
           <Route path="/:type" component={PostViewPage} />
           <Route path="/" component={PostListPage} />
         </Switch>
-      </BrowserRouter>
+      </PostsProvider>
     </Main>
   )
 }
