@@ -20,7 +20,7 @@ export const usePosts = (request: FindPostsRequest) => {
 
 export const findPosts = async ({ type, query, page }: FindPostsRequest) => {
   const { data } = await apiAxios.get<Post[]>(
-    `/api/${type}-posts?p=${page ?? 1}&search=${query ?? ''}&l=10`,
+    `/${type}-posts?page=${page ?? 0}&search=${query ?? ''}`,
   )
   return data
 }

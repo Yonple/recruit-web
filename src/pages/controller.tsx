@@ -25,7 +25,7 @@ export const useController = () => {
       getNextPageParam: (lastPage, allPages) =>
         lastPage.length === 0
           ? false
-          : Math.ceil(allPages.reduce((acc, curr) => acc + curr.length, 0) / NUM_PER_PAGE) + 1,
+          : Math.ceil(allPages.reduce((acc, curr) => acc + curr.length, 0) / NUM_PER_PAGE),
     },
   )
 
