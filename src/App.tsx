@@ -8,30 +8,39 @@ import { ImageListContainer } from './components/ImageListContainer'
 function App() {
   const { query, setQuery, images, loading } = useController()
   return (
-    <Container>
-      <Header>
-        <h1 tw="text-6xl">솔리다리테 개발자 사전 과제</h1>
-        <p tw="text-gray-500 text-2xl">이미지를 검색해보세요</p>
-      </Header>
-      <main tw="space-y-10">
-        <article tw="mx-auto w-96">
-          <Input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="검색어를 입력하세요"
-            type="search"
-            icon={<FontAwesomeIcon icon={faSearch} />}
-            loading={loading}
-          />
-        </article>
+    <Main>
+      <LineGradient />
+      <Container>
+        <Header>
+          <h1 tw="text-6xl">솔리다리테 개발자 사전 과제</h1>
+          <p tw="text-gray-500 text-2xl">이미지를 검색해보세요</p>
+        </Header>
+        <main tw="space-y-10">
+          <article tw="mx-auto w-96">
+            <Input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="검색어를 입력하세요"
+              type="search"
+              icon={<FontAwesomeIcon icon={faSearch} />}
+              loading={loading}
+            />
+          </article>
 
-        <article>
-          <ImageListContainer images={images} />
-        </article>
-      </main>
-    </Container>
+          <article>
+            <ImageListContainer images={images} />
+          </article>
+        </main>
+      </Container>
+    </Main>
   )
 }
+
+const LineGradient = styled.div`
+  ${tw`bg-gradient-to-r from-blue-500 to-green-500 w-full h-4`}
+`
+
+const Main = styled.main``
 
 const Container = styled.section`
   ${tw`mx-auto max-w-full p-10`}

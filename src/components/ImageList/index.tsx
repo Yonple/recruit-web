@@ -9,7 +9,7 @@ interface Props {
 export const ImageList = ({ images, onClickImage }: Props) => {
   return (
     <React.Fragment>
-      <ul tw="flex flex-wrap justify-between">
+      <ul tw="flex flex-wrap justify-around">
         {images.map((image) => (
           <li key={image.id} tw="p-5 cursor-pointer" onClick={() => onClickImage(image)}>
             <StyledImage src={`https://picsum.photos/id/${image.id}/300/300`} />

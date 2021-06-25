@@ -28,6 +28,8 @@ export const Modal = ({ visible, children, onClose }: Props) => {
 
 const ModalWrapper = styled.article`
   ${tw`border shadow bg-white rounded-lg`}
+
+  max-width:100%;
 `
 
 const ModalHeader = styled.header`
@@ -35,7 +37,8 @@ const ModalHeader = styled.header`
 `
 const ModalContent = styled.div`
   ${tw`p-5`}
-  min-width: 500px;
+  width: 500px;
+  max-width: 100%;
   min-height: 300px;
 `
 
