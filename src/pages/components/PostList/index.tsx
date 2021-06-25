@@ -14,7 +14,9 @@ export const PostList = ({ posts }: Props) => {
         <React.Fragment key={post.id}>
           <Link to={`/${post.id}`}>
             <Item>
-              <Title>{post.title}</Title>
+              <Title>
+                <span tw="text-blue-500 font-bold">{post.id}.</span> {post.title}
+              </Title>
               <Content>{post.content}</Content>
             </Item>
           </Link>
@@ -26,13 +28,8 @@ export const PostList = ({ posts }: Props) => {
 const Item = styled.li`
   ${tw`p-5 hover:bg-gray-100 transition-colors`}
 `
-
-const Title = styled.h3`
-  ${tw``}
-`
+const Title = styled.h3``
 const Content = styled.p`
-  ${tw`text-black`}
-
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;

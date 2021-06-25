@@ -1,12 +1,14 @@
 import tw, { styled } from 'twin.macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { Input } from 'src/components'
+import { Input, Tab } from 'src/components'
 import { useController } from './controller'
 import { PostList } from './components/PostList'
 
+const { TabPane } = Tab
+
 const PostListPage = () => {
-  const { query, setQuery, posts, loading } = useController()
+  const { query, setQuery, posts, loading, setTabKey, tabKey, lastPostRef } = useController()
   return (
     <div>
       <Container>
@@ -27,7 +29,12 @@ const PostListPage = () => {
           </article>
 
           <article>
+            <Tab activeTabKey={tabKey} onChange={(index) => setTabKey(index)}>
+              <TabPane tabKey={'a'} name="A Posts"></TabPane>
+              <TabPane tabKey={'b'} name="B Posts"></TabPane>
+            </Tab>
             <PostList posts={posts} />
+            <i ref={lastPostRef}></i>
           </article>
         </main>
       </Container>
