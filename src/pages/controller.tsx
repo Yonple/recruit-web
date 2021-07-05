@@ -22,10 +22,15 @@ export const useController = () => {
     ({ pageParam }) =>
       findPosts({ type: tabKey as 'a' | 'b', page: pageParam, query: debouncedQuery }),
     {
-      getNextPageParam: (lastPage, allPages) =>
-        lastPage.length === 0
-          ? false
-          : Math.ceil(allPages.reduce((acc, curr) => acc + curr.length, 0) / NUM_PER_PAGE),
+      getNextPageParam: (lastPage, allPages) => {
+        const isExistNextPage = lastPage.length !== 0
+        if (!isExistNextPage) return false
+
+        const nextPage = Math.ceil(
+          allPages.reduce((acc, curr) => acc + curr.length, 0) / NUM_PER_PAGE,
+        )
+        return nextPage
+      },
     },
   )
 
