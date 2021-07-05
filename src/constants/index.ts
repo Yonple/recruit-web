@@ -1,1 +1,1 @@
-export const API_HOST = `https://staging-api.yonple.com`
+export const API_HOST = `https://recruit-api.yonple.com`
